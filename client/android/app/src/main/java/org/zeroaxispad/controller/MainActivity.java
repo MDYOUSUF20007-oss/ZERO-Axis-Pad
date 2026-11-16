@@ -1,4 +1,4 @@
-package org.openrelay.gyrocontroller;
+package org.zeroaxispad.controller;
 
 import com.getcapacitor.BridgeActivity;
 

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">OpenRelay Controller</string>
-    <string name="title_activity_main">OpenRelay Controller</string>
-    <string name="package_name">org.openrelay.gyrocontroller</string>
-    <string name="custom_url_scheme">org.openrelay.gyrocontroller</string>
+    <string name="app_name">ZeroAxisPad</string>
+    <string name="title_activity_main">ZeroAxisPad</string>
+    <string name="package_name">org.zeroaxispad.controller</string>
+    <string name="custom_url_scheme">org.zeroaxispad.controller</string>
 </resources>

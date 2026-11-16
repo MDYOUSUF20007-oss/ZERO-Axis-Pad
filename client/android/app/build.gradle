@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace = "org.openrelay.gyrocontroller"
+    namespace = "org.zeroaxispad.controller"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "org.openrelay.gyrocontroller"
+        applicationId "org.zeroaxispad.controller"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
