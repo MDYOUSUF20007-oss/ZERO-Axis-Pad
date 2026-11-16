@@ -1,0 +1,17 @@
+{
+  "name": "zeroaxispad",
+  "version": "1.0.0",
+  "description": "ZeroAxisPad — High-performance, 100% open-source, paywall-free Virtual Controller & Gyro Steering System",
+  "author": "ZeroAxisPad Contributors",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "node server/test_e2e.js",
+    "server": "node server/server.js",
+    "client": "npm --prefix client run dev",
+    "build:client": "npm --prefix client run build",
+    "build": "npm --prefix client run build",
+    "python-bridge": "python server/input_bridge.py",
+    "python-server": "python server/standalone_server.py"
+  }
+}
