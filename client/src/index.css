@@ -23,17 +23,21 @@
 }
 
 /* === THEMES === */
-/* 1. AMOLED (Pure pitch black #000000) */
+/* 1. Xbox Carbon Black (Default) */
 :root[data-theme="amoled"],
+:root[data-theme="xbox"],
 :root:not([data-theme]) {
-  --bg-primary: #000000;
-  --bg-surface: #07090c;
-  --bg-elevated: #11141a;
-  --bg-card: #0d1017;
-  --bg-trackpad: #050608;
-  --bg-joystick-base: rgba(18, 22, 30, 0.85);
-  --bg-joystick-knob: #1a202c;
-  --bg-hud: rgba(0, 0, 0, 0.85);
+  --bg-primary: #0a0c0e;
+  --bg-surface: #12161b;
+  --bg-elevated: #1a2028;
+  --bg-card: #151a22;
+  --bg-trackpad: #0d1116;
+  --bg-joystick-base: radial-gradient(circle at 35% 35%, #242c38 0%, #10141a 75%, #080a0d 100%);
+  --bg-joystick-knob: radial-gradient(circle at 40% 40%, #3a4658 0%, #1f2633 60%, #141922 100%);
+  --bg-hud: rgba(10, 12, 14, 0.92);
+  --xbox-green: #107c10;
+  --xbox-green-glow: rgba(16, 124, 16, 0.6);
+  --dpad-surface: radial-gradient(circle at 30% 30%, #2a3442 0%, #161c24 70%, #0d1117 100%);
 }
 
 /* 2. Cyberpunk Mode */
@@ -43,9 +47,12 @@
   --bg-elevated: #1c1830;
   --bg-card: #151325;
   --bg-trackpad: #0c0a17;
-  --bg-joystick-base: rgba(28, 24, 48, 0.85);
-  --bg-joystick-knob: #2b254a;
+  --bg-joystick-base: radial-gradient(circle at 35% 35%, #342a5c 0%, #18142c 75%, #0c0a17 100%);
+  --bg-joystick-knob: radial-gradient(circle at 40% 40%, #4f3f8c 0%, #2a224a 60%, #18142c 100%);
   --bg-hud: rgba(16, 14, 28, 0.9);
+  --xbox-green: #00ffcc;
+  --xbox-green-glow: rgba(0, 255, 204, 0.6);
+  --dpad-surface: radial-gradient(circle at 30% 30%, #3a2e66 0%, #201a38 70%, #100d1c 100%);
 }
 
 /* 3. Matrix Mode */
@@ -55,21 +62,25 @@
   --bg-elevated: #082110;
   --bg-card: #06190c;
   --bg-trackpad: #030b05;
-  --bg-joystick-base: rgba(8, 33, 16, 0.85);
-  --bg-joystick-knob: #0f3d1e;
+  --bg-joystick-base: radial-gradient(circle at 35% 35%, #0f3d1e 0%, #061e0f 75%, #020b05 100%);
+  --bg-joystick-knob: radial-gradient(circle at 40% 40%, #1a5e30 0%, #0a3017 60%, #04190c 100%);
   --bg-hud: rgba(4, 18, 8, 0.9);
+  --xbox-green: #00ff88;
+  --xbox-green-glow: rgba(0, 255, 136, 0.6);
+  --dpad-surface: radial-gradient(circle at 30% 30%, #134723 0%, #072611 70%, #031409 100%);
 }
 
 /* === ACCENT PALETTES === */
-/* Neon Cyan (Default) */
+/* Xbox Velocity Green (Default) */
+:root[data-accent="emerald"],
 :root[data-accent="cyan"],
 :root:not([data-accent]) {
-  --accent-primary: #00f0ff;
-  --accent-secondary: #00a2ff;
-  --accent-glow: rgba(0, 240, 255, 0.4);
-  --accent-dim: rgba(0, 240, 255, 0.15);
-  --accent-subtle: rgba(0, 240, 255, 0.06);
-  --accent-border: rgba(0, 240, 255, 0.3);
+  --accent-primary: #107c10;
+  --accent-secondary: #0e6b0e;
+  --accent-glow: rgba(16, 124, 16, 0.5);
+  --accent-dim: rgba(16, 124, 16, 0.18);
+  --accent-subtle: rgba(16, 124, 16, 0.08);
+  --accent-border: rgba(16, 124, 16, 0.35);
 }
 
 /* Cyber Purple */

@@ -77,24 +77,29 @@ export const TriggerBar: React.FC<TriggerBarProps> = ({
             style={{
               ...styles.triggerFill,
               height: `${triggersState.lt * 100}%`,
-              backgroundColor: 'var(--accent-primary)',
-              opacity: triggersState.lt > 0 ? 0.35 : 0,
+              background: 'linear-gradient(0deg, var(--accent-primary) 0%, rgba(16, 124, 16, 0.4) 100%)',
+              opacity: triggersState.lt > 0 ? 0.7 : 0,
             }}
           />
-          <span style={styles.triggerLabel}>LT / L2</span>
+          <span style={styles.triggerLabel}>LT</span>
           <span style={styles.triggerValue}>
             {triggersState.lt > 0 ? `${Math.round(triggersState.lt * 100)}%` : ''}
           </span>
         </div>
 
-        {/* L1 Bumper */}
+        {/* LB Bumper */}
         <button
           style={{
             ...styles.bumperButton,
-            backgroundColor: bumpersState.lb ? 'var(--accent-primary)' : 'var(--bg-elevated)',
+            background: bumpersState.lb
+              ? 'var(--accent-primary)'
+              : 'linear-gradient(180deg, #2b3542 0%, #151a22 100%)',
             color: bumpersState.lb ? '#000000' : 'var(--text-primary)',
-            borderColor: bumpersState.lb ? 'var(--accent-primary)' : 'var(--border-light)',
-            boxShadow: bumpersState.lb ? '0 0 12px var(--accent-glow)' : 'none',
+            borderColor: bumpersState.lb ? 'var(--accent-primary)' : 'rgba(255, 255, 255, 0.2)',
+            boxShadow: bumpersState.lb
+              ? '0 0 16px var(--accent-glow), inset 0 2px 4px rgba(255,255,255,0.4)'
+              : '0 3px 8px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.2)',
+            transform: bumpersState.lb ? 'scale(0.96) translateY(1px)' : 'scale(1)',
           }}
           onTouchStart={(e) => {
             e.preventDefault();
@@ -114,20 +119,25 @@ export const TriggerBar: React.FC<TriggerBarProps> = ({
             if (bumpersState.lb) handleBumperEnd('lb');
           }}
         >
-          <span style={styles.bumperLabel}>LB / L1</span>
+          <span style={styles.bumperLabel}>LB</span>
         </button>
       </div>
 
-      {/* Right Shoulder Cluster: R1 (RB) and R2 (RT) */}
+      {/* Right Shoulder Cluster: RB and RT */}
       <div style={styles.cluster}>
-        {/* R1 Bumper */}
+        {/* RB Bumper */}
         <button
           style={{
             ...styles.bumperButton,
-            backgroundColor: bumpersState.rb ? 'var(--accent-primary)' : 'var(--bg-elevated)',
+            background: bumpersState.rb
+              ? 'var(--accent-primary)'
+              : 'linear-gradient(180deg, #2b3542 0%, #151a22 100%)',
             color: bumpersState.rb ? '#000000' : 'var(--text-primary)',
-            borderColor: bumpersState.rb ? 'var(--accent-primary)' : 'var(--border-light)',
-            boxShadow: bumpersState.rb ? '0 0 12px var(--accent-glow)' : 'none',
+            borderColor: bumpersState.rb ? 'var(--accent-primary)' : 'rgba(255, 255, 255, 0.2)',
+            boxShadow: bumpersState.rb
+              ? '0 0 16px var(--accent-glow), inset 0 2px 4px rgba(255,255,255,0.4)'
+              : '0 3px 8px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.2)',
+            transform: bumpersState.rb ? 'scale(0.96) translateY(1px)' : 'scale(1)',
           }}
           onTouchStart={(e) => {
             e.preventDefault();
@@ -147,14 +157,17 @@ export const TriggerBar: React.FC<TriggerBarProps> = ({
             if (bumpersState.rb) handleBumperEnd('rb');
           }}
         >
-          <span style={styles.bumperLabel}>RB / R1</span>
+          <span style={styles.bumperLabel}>RB</span>
         </button>
 
-        {/* R2 Analog Trigger */}
+        {/* RT Analog Trigger */}
         <div
           style={{
             ...styles.triggerButton,
-            borderColor: triggersState.rt > 0 ? 'var(--accent-primary)' : 'var(--border-light)',
+            borderColor: triggersState.rt > 0 ? 'var(--accent-primary)' : 'rgba(255,255,255,0.2)',
+            boxShadow: triggersState.rt > 0
+              ? '0 0 16px var(--accent-glow)'
+              : '0 4px 10px rgba(0,0,0,0.7), inset 0 1px 1px rgba(255,255,255,0.15)',
           }}
           onTouchStart={(e) => {
             e.preventDefault();
@@ -180,11 +193,11 @@ export const TriggerBar: React.FC<TriggerBarProps> = ({
             style={{
               ...styles.triggerFill,
               height: `${triggersState.rt * 100}%`,
-              backgroundColor: 'var(--accent-primary)',
-              opacity: triggersState.rt > 0 ? 0.35 : 0,
+              background: 'linear-gradient(0deg, var(--accent-primary) 0%, rgba(16, 124, 16, 0.4) 100%)',
+              opacity: triggersState.rt > 0 ? 0.7 : 0,
             }}
           />
-          <span style={styles.triggerLabel}>RT / R2</span>
+          <span style={styles.triggerLabel}>RT</span>
           <span style={styles.triggerValue}>
             {triggersState.rt > 0 ? `${Math.round(triggersState.rt * 100)}%` : ''}
           </span>

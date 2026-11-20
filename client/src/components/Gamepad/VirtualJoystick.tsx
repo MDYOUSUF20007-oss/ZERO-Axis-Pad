@@ -161,26 +161,30 @@ export const VirtualJoystick: React.FC<VirtualJoystickProps> = ({
         <div style={styles.crosshairV} />
         <div style={styles.centerTarget} />
 
-        {/* Joystick Thumb Knob */}
+        {/* Joystick Thumb Knob - Xbox Concave Dish Styling */}
         <div
           style={{
             ...styles.knob,
             width: `${knobSize}px`,
             height: `${knobSize}px`,
             transform: `translate(${knobPos.x}px, ${knobPos.y}px)`,
-            borderColor: isActive ? 'var(--accent-primary)' : 'rgba(255,255,255,0.2)',
-            backgroundColor: isActive ? 'var(--bg-joystick-knob)' : 'var(--bg-elevated)',
+            borderColor: isActive ? 'var(--accent-primary)' : 'rgba(255,255,255,0.22)',
+            background: isActive ? 'var(--bg-joystick-knob)' : 'radial-gradient(circle at 40% 40%, #323b49 0%, #1a2029 65%, #10141a 100%)',
             boxShadow: isActive
-              ? '0 0 14px var(--accent-glow), inset 0 0 8px var(--accent-dim)'
-              : 'var(--shadow-sm)',
+              ? '0 6px 18px rgba(0,0,0,0.8), 0 0 16px var(--accent-glow), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 6px rgba(0,0,0,0.8)'
+              : '0 4px 12px rgba(0,0,0,0.7), inset 0 1px 2px rgba(255,255,255,0.2), inset 0 -2px 6px rgba(0,0,0,0.8)',
           }}
         >
-          <div
-            style={{
-              ...styles.knobCenterDot,
-              backgroundColor: isActive ? 'var(--accent-primary)' : 'var(--text-muted)',
-            }}
-          />
+          {/* Xbox Concave Inner Ring & Grip Nubs */}
+          <div style={styles.knobInnerDish}>
+            <div
+              style={{
+                ...styles.knobCenterDot,
+                backgroundColor: isActive ? 'var(--accent-primary)' : 'rgba(255,255,255,0.25)',
+                boxShadow: isActive ? '0 0 8px var(--accent-glow)' : 'none',
+              }}
+            />
+          </div>
         </div>
       </div>
       <span style={styles.label}>{label}</span>
@@ -246,16 +250,27 @@ const styles: Record<string, React.CSSProperties> = {
     transition: 'transform 0.02s linear, border-color 0.15s',
     willChange: 'transform',
   },
-  knobCenterDot: {
-    width: '10px',
-    height: '10px',
+  knobInnerDish: {
+    width: '74%',
+    height: '74%',
     borderRadius: '50%',
-    transition: 'background-color 0.15s',
+    border: '1.5px solid rgba(255, 255, 255, 0.15)',
+    boxShadow: 'inset 0 3px 6px rgba(0, 0, 0, 0.8), 0 1px 2px rgba(255, 255, 255, 0.1)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    background: 'radial-gradient(circle at 50% 50%, #151a22 0%, #10141a 100%)',
+  },
+  knobCenterDot: {
+    width: '8px',
+    height: '8px',
+    borderRadius: '50%',
+    transition: 'background-color 0.15s, box-shadow 0.15s',
   },
   label: {
     fontSize: '11px',
-    fontWeight: 600,
-    letterSpacing: '0.5px',
+    fontWeight: 700,
+    letterSpacing: '0.8px',
     color: 'var(--text-muted)',
     textTransform: 'uppercase',
   },

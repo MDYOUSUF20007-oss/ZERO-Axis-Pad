@@ -31,38 +31,43 @@ export const ActionButtons: React.FC<ActionButtonsProps> = ({
     left: number;
     color: string;
     glow: string;
+    baseBg: string;
   }[] = [
     {
       id: 'y',
       label: 'Y',
       top: 0,
       left: (size - btnSize) / 2,
-      color: '#eab308', // Yellow
-      glow: 'rgba(234, 179, 8, 0.45)',
+      color: '#fbbf24', // Xbox Yellow
+      glow: 'rgba(251, 191, 36, 0.6)',
+      baseBg: 'radial-gradient(circle at 35% 30%, #3d3210 0%, #1c1707 70%, #0d0a03 100%)',
     },
     {
       id: 'b',
       label: 'B',
       top: (size - btnSize) / 2,
       left: size - btnSize,
-      color: '#ef4444', // Red
-      glow: 'rgba(239, 68, 68, 0.45)',
+      color: '#f87171', // Xbox Red
+      glow: 'rgba(248, 113, 113, 0.6)',
+      baseBg: 'radial-gradient(circle at 35% 30%, #3d1414 0%, #1c0808 70%, #0d0303 100%)',
     },
     {
       id: 'a',
       label: 'A',
       top: size - btnSize,
       left: (size - btnSize) / 2,
-      color: '#22c55e', // Green
-      glow: 'rgba(34, 197, 94, 0.45)',
+      color: '#4ade80', // Xbox Green
+      glow: 'rgba(74, 222, 128, 0.6)',
+      baseBg: 'radial-gradient(circle at 35% 30%, #103d1c 0%, #081c0c 70%, #030d05 100%)',
     },
     {
       id: 'x',
       label: 'X',
       top: (size - btnSize) / 2,
       left: 0,
-      color: '#3b82f6', // Blue
-      glow: 'rgba(59, 130, 246, 0.45)',
+      color: '#60a5fa', // Xbox Blue
+      glow: 'rgba(96, 165, 250, 0.6)',
+      baseBg: 'radial-gradient(circle at 35% 30%, #14284d 0%, #091326 70%, #030812 100%)',
     },
   ];
 
@@ -75,7 +80,7 @@ export const ActionButtons: React.FC<ActionButtonsProps> = ({
           height: `${size}px`,
         }}
       >
-        {/* Subtle circular backing plate */}
+        {/* Xbox Diamond backing dish */}
         <div style={styles.backingCircle} />
 
         {buttonConfigs.map((cfg) => {
@@ -89,13 +94,13 @@ export const ActionButtons: React.FC<ActionButtonsProps> = ({
                 height: `${btnSize}px`,
                 top: `${cfg.top}px`,
                 left: `${cfg.left}px`,
-                borderColor: isPressed ? cfg.color : 'rgba(255,255,255,0.15)',
-                backgroundColor: isPressed ? cfg.color : 'var(--bg-elevated)',
+                borderColor: isPressed ? cfg.color : 'rgba(255,255,255,0.2)',
+                background: isPressed ? cfg.color : cfg.baseBg,
                 color: isPressed ? '#000000' : cfg.color,
                 boxShadow: isPressed
-                  ? `0 0 16px ${cfg.glow}, inset 0 0 8px rgba(0,0,0,0.4)`
-                  : 'var(--shadow-sm)',
-                transform: isPressed ? 'scale(0.92)' : 'scale(1)',
+                  ? `0 0 20px ${cfg.glow}, inset 0 2px 4px rgba(255,255,255,0.4)`
+                  : '0 4px 8px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.25)',
+                transform: isPressed ? 'scale(0.93) translateY(2px)' : 'scale(1)',
               }}
               onTouchStart={(e) => {
                 e.preventDefault();

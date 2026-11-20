@@ -129,6 +129,9 @@ export const DPad: React.FC<DPadProps> = ({ onDirectionChange, size = 150 }) => 
         onTouchCancel={handleTouchEnd}
         onMouseDown={handleMouseDown}
       >
+        {/* Xbox Faceted Disc Backing */}
+        <div style={styles.xboxDiscBacking} />
+
         {/* Cross background */}
         <div style={{ ...styles.crossHorizontal, width: `${size}px`, height: `${btnSize}px` }} />
         <div style={{ ...styles.crossVertical, width: `${btnSize}px`, height: `${size}px` }} />
@@ -140,12 +143,12 @@ export const DPad: React.FC<DPadProps> = ({ onDirectionChange, size = 150 }) => 
             ...styles.wingUp,
             width: `${btnSize}px`,
             height: `${btnSize}px`,
-            backgroundColor: activeDirs.up ? 'var(--accent-primary)' : 'var(--bg-elevated)',
-            color: activeDirs.up ? '#000' : 'var(--text-secondary)',
-            boxShadow: activeDirs.up ? '0 0 12px var(--accent-glow)' : 'none',
+            background: activeDirs.up ? 'var(--accent-primary)' : 'linear-gradient(180deg, #2b3542 0%, #171d26 100%)',
+            color: activeDirs.up ? '#000000' : 'rgba(255, 255, 255, 0.85)',
+            boxShadow: activeDirs.up ? '0 0 16px var(--accent-glow), inset 0 2px 4px rgba(255,255,255,0.4)' : 'inset 0 1px 1px rgba(255,255,255,0.2)',
           }}
         >
-          <ChevronUp size={20} strokeWidth={2.5} />
+          <ChevronUp size={20} strokeWidth={3} />
         </div>
 
         {/* Down Wing */}
@@ -155,12 +158,12 @@ export const DPad: React.FC<DPadProps> = ({ onDirectionChange, size = 150 }) => 
             ...styles.wingDown,
             width: `${btnSize}px`,
             height: `${btnSize}px`,
-            backgroundColor: activeDirs.down ? 'var(--accent-primary)' : 'var(--bg-elevated)',
-            color: activeDirs.down ? '#000' : 'var(--text-secondary)',
-            boxShadow: activeDirs.down ? '0 0 12px var(--accent-glow)' : 'none',
+            background: activeDirs.down ? 'var(--accent-primary)' : 'linear-gradient(0deg, #2b3542 0%, #171d26 100%)',
+            color: activeDirs.down ? '#000000' : 'rgba(255, 255, 255, 0.85)',
+            boxShadow: activeDirs.down ? '0 0 16px var(--accent-glow), inset 0 -2px 4px rgba(255,255,255,0.4)' : 'inset 0 -1px 1px rgba(255,255,255,0.2)',
           }}
         >
-          <ChevronDown size={20} strokeWidth={2.5} />
+          <ChevronDown size={20} strokeWidth={3} />
         </div>
 
         {/* Left Wing */}
@@ -170,12 +173,12 @@ export const DPad: React.FC<DPadProps> = ({ onDirectionChange, size = 150 }) => 
             ...styles.wingLeft,
             width: `${btnSize}px`,
             height: `${btnSize}px`,
-            backgroundColor: activeDirs.left ? 'var(--accent-primary)' : 'var(--bg-elevated)',
-            color: activeDirs.left ? '#000' : 'var(--text-secondary)',
-            boxShadow: activeDirs.left ? '0 0 12px var(--accent-glow)' : 'none',
+            background: activeDirs.left ? 'var(--accent-primary)' : 'linear-gradient(90deg, #2b3542 0%, #171d26 100%)',
+            color: activeDirs.left ? '#000000' : 'rgba(255, 255, 255, 0.85)',
+            boxShadow: activeDirs.left ? '0 0 16px var(--accent-glow), inset 2px 0 4px rgba(255,255,255,0.4)' : 'inset 1px 0 1px rgba(255,255,255,0.2)',
           }}
         >
-          <ChevronLeft size={20} strokeWidth={2.5} />
+          <ChevronLeft size={20} strokeWidth={3} />
         </div>
 
         {/* Right Wing */}
@@ -185,20 +188,20 @@ export const DPad: React.FC<DPadProps> = ({ onDirectionChange, size = 150 }) => 
             ...styles.wingRight,
             width: `${btnSize}px`,
             height: `${btnSize}px`,
-            backgroundColor: activeDirs.right ? 'var(--accent-primary)' : 'var(--bg-elevated)',
-            color: activeDirs.right ? '#000' : 'var(--text-secondary)',
-            boxShadow: activeDirs.right ? '0 0 12px var(--accent-glow)' : 'none',
+            background: activeDirs.right ? 'var(--accent-primary)' : 'linear-gradient(270deg, #2b3542 0%, #171d26 100%)',
+            color: activeDirs.right ? '#000000' : 'rgba(255, 255, 255, 0.85)',
+            boxShadow: activeDirs.right ? '0 0 16px var(--accent-glow), inset -2px 0 4px rgba(255,255,255,0.4)' : 'inset -1px 0 1px rgba(255,255,255,0.2)',
           }}
         >
-          <ChevronRight size={20} strokeWidth={2.5} />
+          <ChevronRight size={20} strokeWidth={3} />
         </div>
 
         {/* Center Pivot */}
         <div
           style={{
             ...styles.centerPivot,
-            width: `${btnSize * 0.7}px`,
-            height: `${btnSize * 0.7}px`,
+            width: `${btnSize * 0.8}px`,
+            height: `${btnSize * 0.8}px`,
           }}
         />
       </div>
@@ -225,18 +228,29 @@ const styles: Record<string, React.CSSProperties> = {
     userSelect: 'none',
     cursor: 'pointer',
   },
+  xboxDiscBacking: {
+    position: 'absolute',
+    inset: '-4px',
+    borderRadius: '50%',
+    background: 'radial-gradient(circle at 40% 40%, #1e2630 0%, #0d1117 75%, #05070a 100%)',
+    border: '1.5px solid rgba(255, 255, 255, 0.1)',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.8), inset 0 2px 4px rgba(255,255,255,0.1)',
+    pointerEvents: 'none',
+  },
   crossHorizontal: {
     position: 'absolute',
-    borderRadius: '8px',
-    backgroundColor: 'var(--bg-surface)',
-    border: '1px solid var(--border-light)',
+    borderRadius: '6px',
+    background: '#161c24',
+    border: '1px solid rgba(255, 255, 255, 0.12)',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.7)',
     pointerEvents: 'none',
   },
   crossVertical: {
     position: 'absolute',
-    borderRadius: '8px',
-    backgroundColor: 'var(--bg-surface)',
-    border: '1px solid var(--border-light)',
+    borderRadius: '6px',
+    background: '#161c24',
+    border: '1px solid rgba(255, 255, 255, 0.12)',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.7)',
     pointerEvents: 'none',
   },
   wing: {
@@ -245,41 +259,42 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: '6px',
-    transition: 'all 0.1s ease',
+    transition: 'all 0.08s ease',
     pointerEvents: 'none',
   },
   wingUp: {
     top: 0,
-    borderTopLeftRadius: '8px',
-    borderTopRightRadius: '8px',
+    borderTopLeftRadius: '6px',
+    borderTopRightRadius: '6px',
   },
   wingDown: {
     bottom: 0,
-    borderBottomLeftRadius: '8px',
-    borderBottomRightRadius: '8px',
+    borderBottomLeftRadius: '6px',
+    borderBottomRightRadius: '6px',
   },
   wingLeft: {
     left: 0,
-    borderTopLeftRadius: '8px',
-    borderBottomLeftRadius: '8px',
+    borderTopLeftRadius: '6px',
+    borderBottomLeftRadius: '6px',
   },
   wingRight: {
     right: 0,
-    borderTopRightRadius: '8px',
-    borderBottomRightRadius: '8px',
+    borderTopRightRadius: '6px',
+    borderBottomRightRadius: '6px',
   },
   centerPivot: {
     position: 'absolute',
     borderRadius: '50%',
-    backgroundColor: 'var(--bg-surface)',
-    border: '1px solid var(--border-light)',
-    boxShadow: 'inset 0 0 6px rgba(0, 0, 0, 0.6)',
+    background: 'radial-gradient(circle at 45% 45%, #242c38 0%, #10141a 80%)',
+    border: '1.5px solid rgba(255, 255, 255, 0.12)',
+    boxShadow: 'inset 0 3px 6px rgba(0, 0, 0, 0.9), 0 1px 2px rgba(255, 255, 255, 0.15)',
     pointerEvents: 'none',
   },
   label: {
     fontSize: '11px',
-    fontWeight: 600,
-    letterSpacing: '0.5px',
+    fontWeight: 700,
+    letterSpacing: '0.8px',
     color: 'var(--text-muted)',
+    textTransform: 'uppercase',
   },
 };

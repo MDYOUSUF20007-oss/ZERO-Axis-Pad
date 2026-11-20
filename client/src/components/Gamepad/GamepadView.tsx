@@ -170,39 +170,47 @@ export const GamepadView: React.FC<GamepadViewProps> = ({
         steeringAngleDeg={rollDeg}
       />
 
-      {/* Main Controls Arena */}
+      {/* Main Controls Arena - Authentic Asymmetric Xbox Ergonomic Layout */}
       <div style={styles.controlsArena}>
-        {/* Left Side: Left Analog Stick and D-Pad */}
-        <div style={styles.controlClusterLeft}>
-          <VirtualJoystick
-            label="Left Stick"
-            size={135}
-            knobSize={54}
-            onChange={handleLeftStickChange}
-            onClickStick={() => handleSystemButton('l3', true)}
-          />
-          <DPad onDirectionChange={handleDPadChange} size={130} />
+        {/* Left Grip Wing: Top-Left Analog Stick & Lower-Right D-Pad */}
+        <div style={styles.leftWingCluster}>
+          <div style={styles.leftStickPlacement}>
+            <VirtualJoystick
+              label="LS"
+              size={140}
+              knobSize={56}
+              onChange={handleLeftStickChange}
+              onClickStick={() => handleSystemButton('l3', true)}
+            />
+          </div>
+          <div style={styles.dpadPlacement}>
+            <DPad onDirectionChange={handleDPadChange} size={135} />
+          </div>
         </div>
 
-        {/* Right Side: Action ABXY Buttons and Right Analog Stick */}
-        <div style={styles.controlClusterRight}>
-          <ActionButtons
-            onButtonChange={handleActionButton}
-            buttonsState={{
-              a: uiButtons.a,
-              b: uiButtons.b,
-              x: uiButtons.x,
-              y: uiButtons.y,
-            }}
-            size={135}
-          />
-          <VirtualJoystick
-            label="Right Stick"
-            size={135}
-            knobSize={54}
-            onChange={handleRightStickChange}
-            onClickStick={() => handleSystemButton('r3', true)}
-          />
+        {/* Right Grip Wing: Top-Left ABXY Action Diamond & Lower-Right Analog Stick */}
+        <div style={styles.rightWingCluster}>
+          <div style={styles.abxyPlacement}>
+            <ActionButtons
+              onButtonChange={handleActionButton}
+              buttonsState={{
+                a: uiButtons.a,
+                b: uiButtons.b,
+                x: uiButtons.x,
+                y: uiButtons.y,
+              }}
+              size={140}
+            />
+          </div>
+          <div style={styles.rightStickPlacement}>
+            <VirtualJoystick
+              label="RS"
+              size={140}
+              knobSize={56}
+              onChange={handleRightStickChange}
+              onClickStick={() => handleSystemButton('r3', true)}
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -215,7 +223,7 @@ const styles: Record<string, React.CSSProperties> = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    padding: '4px 10px 10px 10px',
+    padding: '4px 12px 12px 12px',
     backgroundColor: 'var(--bg-primary)',
     userSelect: 'none',
     touchAction: 'none',
@@ -228,14 +236,34 @@ const styles: Record<string, React.CSSProperties> = {
     justifyContent: 'space-between',
     padding: '0 8px',
   },
-  controlClusterLeft: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '24px',
+  leftWingCluster: {
+    position: 'relative',
+    width: '280px',
+    height: '210px',
   },
-  controlClusterRight: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '24px',
+  leftStickPlacement: {
+    position: 'absolute',
+    top: '0px',
+    left: '10px',
+  },
+  dpadPlacement: {
+    position: 'absolute',
+    bottom: '0px',
+    right: '10px',
+  },
+  rightWingCluster: {
+    position: 'relative',
+    width: '280px',
+    height: '210px',
+  },
+  abxyPlacement: {
+    position: 'absolute',
+    top: '0px',
+    right: '10px',
+  },
+  rightStickPlacement: {
+    position: 'absolute',
+    bottom: '0px',
+    left: '10px',
   },
 };
